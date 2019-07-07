@@ -14,15 +14,17 @@ import com.edilson.cursomc.domain.Categoria;
 import com.edilson.cursomc.services.CategoriaService;
 
 @RestController
-@RequestMapping(value="/categorias")
+@RequestMapping(value = "/categorias")
 public class CategoriaResource {
-	
+
 	@Autowired
-	private CategoriaService service; 
-	
+	private CategoriaService service;
+
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public ResponseEntity<?> find(@PathVariable Integer id) {
+		
 		Categoria obj = service.buscar(id);
-		return ResponseEntity.ok().body(obj);		
+		return ResponseEntity.ok().body(obj);
+		
 	}
 }
